@@ -1,2 +1,2 @@
 # UselessDB
-Only study no any use database
+Only study no any use database.
