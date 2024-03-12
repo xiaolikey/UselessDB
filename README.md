@@ -13,12 +13,30 @@ Only study no any use database.
   | ...       | ...                | ...                   |
 
 * id为插入时系统自动生成64位自增长id，key是唯一键, key只能由数字和字母组成, value只能由数字字母+空格组成。
-* 用户对于数据库只有6个操作, 通过cli进行交换:
+* 用户对于数据库只有7个操作, 通过cli进行交换:
+
+i. 1个DML语句
 ```bash
-insert into ("[key]", "[value]") #插入数据,返回id
-select from  where id=[id] #根据id查询数据,返回id,key,value
-select from  where key="[key]" #根据key查询数据,返回id,key,value
-truncate #清空全部数据,返回1
-exit #退出系统
--load [full_path] #加载数据文件，输出每一行结果
+# 插入数据,返回id
+insert into ('[key]', '[value]') 
+````
+
+ii. 3个DQL语句
+```bash
+# 根据id查询数据,返回id,key,value
+select from  where id=[id] 
+# 根据key查询数据,返回id,key,value
+select from  where key='[key]'
+#根据word查询数据,返回第一条满足word包含在value里面的记录，id,key,value
+select from  where value like '[word]' 
 ```
+iii. 1个DDL语句
+```bash
+#清空全部数据,返回1
+truncate 
+```
+vi. 2个系统执行
+```bash
+#退出系统
+exit
+````

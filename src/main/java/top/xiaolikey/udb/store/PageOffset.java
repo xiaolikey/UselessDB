@@ -1,6 +1,4 @@
-package top.xiaolikey.udb;
-
-import java.util.List;
+package top.xiaolikey.udb.store;
 
 /**
  * TODO
@@ -9,7 +7,7 @@ import java.util.List;
  * @date 2024/3/11
  * @since 0.0.1
  */
-public class Page {
+public class PageOffset {
     int pageNum;
-    List<Row> rows;
+    int offset;
 }

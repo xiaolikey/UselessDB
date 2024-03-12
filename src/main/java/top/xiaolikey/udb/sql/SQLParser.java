@@ -1,4 +1,7 @@
-package top.xiaolikey.udb;
+package top.xiaolikey.udb.sql;
+
+import top.xiaolikey.udb.OperatorType;
+import top.xiaolikey.udb.constants;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +27,8 @@ public class SQLParser {
             ans = OperatorType.SELECT_BY_ID;
         } else if(mathSelectByKey(line)) {
             ans = OperatorType.SELECT_BY_KEY;
+        } else if(matchSelectValueContainsWord(line)) {
+            ans = OperatorType.SELECT_VALUE_CONTAINS_WORD;
         } else if(mathTruncate(line)) {
             ans = OperatorType.TRUNCATE;
         } else if(mathExit(line)) {
@@ -42,6 +47,10 @@ public class SQLParser {
 
     private static boolean mathSelectByKey(String line) {
         return Pattern.matches(constants.PAT_SELECT_BY_KEY, line);
+    }
+
+    private static boolean matchSelectValueContainsWord(String line) {
+        return Pattern.matches(constants.PAT_SELECT_VALUE_CONTAINS_WORD, line);
     }
 
     private static boolean mathTruncate(String line) {

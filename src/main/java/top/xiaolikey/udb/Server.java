@@ -1,5 +1,7 @@
 package top.xiaolikey.udb;
 
+import top.xiaolikey.udb.sql.SQLType;
+
 import java.util.Scanner;
 
 /**
@@ -27,6 +29,7 @@ public class Server {
             }
             //执行命令行
             operator.execute();
+            System.out.println(operator.row);
         }
     }
 }
